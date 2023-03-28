@@ -20,3 +20,9 @@ class Usuarios(models.Model):
 
 class Postagens(models.Model):
     id_Postagem = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+    mensagem = models.CharField(max_length=255)
+    id_Usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.mensagem
