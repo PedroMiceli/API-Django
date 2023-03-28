@@ -12,8 +12,11 @@ class Usuarios(models.Model):
     uf = models.CharField(max_length=255)
     cep = models.IntegerField(max_length=8)
     email = models.EmailField(max_length=255)
-
+    prestador = models.BooleanField(default=False)
     objects=models.Manager()
 
     def __str__(self):
         return self.nome
+
+class Postagens(models.Model):
+    id_Postagem = models.UUIDField(primary_key=True, default=uuid4, editable=False)
